@@ -34,15 +34,9 @@ $(document).ready(function () {
     $(".saveBtn").on("click", function(){
         var timeBlockText = $(this).siblings(".description").val();
         var blockId = $(this).parent().attr("id");
-        localStorage.setItem("timeBlockText", JSON.stringify(timeBlockText))
-        localStorage.setItem("blockId", JSON.stringify(blockId))
-    
+        localStorage.setItem(timeBlockText, blockId)
 })
 
     colorChanger();
 
 });
-
-
-
-
