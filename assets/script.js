@@ -6,7 +6,7 @@ $(document).ready(function () {
     //setting variables to call upon later in my functions.
     var currentTime = moment().format("h a");
     var timeRow = parseInt($(this).attr("id"));
-console.log(currentTime)
+    console.log(currentTime)
     $(".time-block").each(function () {
         if (timeRow < currentTime) {
             $(this).removeClass("future", "present");
@@ -20,5 +20,14 @@ console.log(currentTime)
         }
     });
 
+    //setting up a save button that actually saves.
+    var timeBlockText = $(this).siblings(".description").val();
+    var blockId = $(this).parent().attr("id");
+        $(".saveBtn").on("click", function (e) {
+
+            localStorage.setItem(timeBlockText, blockId)
+            console.log(e)
+
+        })
 
 });
