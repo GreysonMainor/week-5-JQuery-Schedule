@@ -3,22 +3,21 @@ $(document).ready(function () {
     //setting my current date and time to the top of my page in the currentDay div.
     $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
-    //setting variables to call upon later in my functions.
-    var currentTime = moment().format("h a");
-    var timeRow = parseInt($(this).attr("id"));
-    console.log(currentTime)
-    $(".time-block").each(function () {
-        if (timeRow < currentTime) {
-            $(this).removeClass("future", "present");
-            $(this).addClass("past");
-        } else if (timeRow === currentTime) {
-            $(this).removeClass("past", "future");
-            $(this).addClass("present");
-        } else {
-            $(this).removeClass("present", "past");
-            $(this).addClass("future");
-        }
-    });
+    //setting up my color changer based on the time of day.
+    function colorChanger() {
+        var currentTime = moment().hour();
+        console.log(currentTime)
+        $(".time-block").each(function () {
+            var timeBlock = parseInt($(this).attr("id").split("hour")[1]);
+            if (timeBlock < currentTime) {
+                $(this).removeClass("future", "present").addClass("past");
+            }else if (timeBlock === currentTime) {
+                $(this).removeClass("past", "future").addClass("present");
+            }else {
+                $(this).removeClass("present", "past").addClass("future");
+            }
+        })
+    }
 
     //setting up a save button that actually saves.
     // var timeBlockText = $(this).siblings(".description").val("");
@@ -34,6 +33,15 @@ $(document).ready(function () {
         });
 
      
-    JSON.parse(localStorage.getItem("#hour8"))
+    function load() {
+        var timeBlockText = $(this).siblings(".description").val();
+        var blockId = $(this).parent().attr("id");
+        localStorage.getItem("timeBlockText", JSON.stringify(timeBlockText))
+        localStorage.getItem("blockId", JSON.stringify(blockId))
+    
+    }
+
+    colorChanger();
 
 });
+
