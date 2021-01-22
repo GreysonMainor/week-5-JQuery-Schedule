@@ -20,8 +20,6 @@ $(document).ready(function () {
     }
 
     //setting up a save button that actually saves.
-    // var timeBlockText = $(this).siblings(".description").val("");
-    // var blockId = $(this).parent().attr("id");
         $(".saveBtn").on("click", function () {
             var timeBlockText = $(this).siblings(".description").val();
             var blockId = $(this).parent().attr("id");
@@ -33,15 +31,19 @@ $(document).ready(function () {
         });
 
      
-    function load() {
+    $(".saveBtn").on("click", function(){
         var timeBlockText = $(this).siblings(".description").val();
         var blockId = $(this).parent().attr("id");
         localStorage.getItem("timeBlockText", JSON.stringify(timeBlockText))
         localStorage.getItem("blockId", JSON.stringify(blockId))
     
-    }
+})
 
     colorChanger();
 
 });
+
+
+
+
 
