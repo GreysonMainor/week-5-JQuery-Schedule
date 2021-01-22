@@ -9,20 +9,16 @@ $(document).ready(function () {
 console.log(currentTime)
     $(".time-block").each(function () {
         if (timeRow < currentTime) {
-            $(this).removeClass("future");
-            $(this).removeClass("present");
+            $(this).removeClass("future", "present");
             $(this).addClass("past");
         } else if (timeRow === currentTime) {
-            $(this).removeClass("past");
-            $(this).removeClass("future");
+            $(this).removeClass("past", "future");
             $(this).addClass("present");
         } else {
-            $(this).removeClass("present");
-            $(this).removeClass("past");
+            $(this).removeClass("present", "past");
             $(this).addClass("future");
-
         }
-    })
+    });
 
 
 });
