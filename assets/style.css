@@ -43,7 +43,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: black;
   color: white;
 }
 
@@ -53,7 +53,7 @@ textarea{
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: darkgreen;
   color: white;
 }
 
