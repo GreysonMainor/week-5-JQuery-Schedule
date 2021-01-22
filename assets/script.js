@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //setting my current date and time to the top of my page in the currentDay div.
-    $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
 
     //setting variables to call upon later in my functions.
     var currentTime = moment().format("h a");
@@ -21,13 +21,19 @@ $(document).ready(function () {
     });
 
     //setting up a save button that actually saves.
-    var timeBlockText = $(this).siblings(".description").val();
-    var blockId = $(this).parent().attr("id");
-        $(".saveBtn").on("click", function (e) {
+    // var timeBlockText = $(this).siblings(".description").val("");
+    // var blockId = $(this).parent().attr("id");
+        $(".saveBtn").on("click", function () {
+            var timeBlockText = $(this).siblings(".description").val();
+            var blockId = $(this).parent().attr("id");
 
-            localStorage.setItem(timeBlockText, blockId)
-            console.log(e)
+            localStorage.setItem("timeBlockText", JSON.stringify(timeBlockText))
+            localStorage.setItem("blockId", JSON.stringify(blockId))
+            console.log()
 
-        })
+        });
+
+     
+    JSON.parse(localStorage.getItem("#hour8"))
 
 });
