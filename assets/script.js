@@ -18,11 +18,11 @@ $(document).ready(function () {
     //setting up my color changer based on the time of day.
     function colorChanger() {
         var currentTime = moment().hour();
-        console.log(currentTime)
+        console.log(currentTime);
         $(".description").each(function () {
              var timeBlock = parseInt($(this).attr("time"));
-             console.log(timeBlock)
-             console.log(this)
+             console.log(timeBlock);
+             console.log(this);
               if (timeBlock < currentTime) {
                   $(this).removeClass("future", "present").addClass("past");
               }else if (timeBlock === currentTime) {
@@ -36,7 +36,7 @@ $(document).ready(function () {
      $(".saveBtn").on("click", function(){
          var timeBlockText = $(this).parent().attr("id");
          var blockId = $(this).siblings(".description").val();
-        localStorage.setItem(timeBlockText, blockId)
+        localStorage.setItem(timeBlockText, blockId);
 })
 
     colorChanger();
